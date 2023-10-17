@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -46,14 +47,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxm-Zi-7an">
-                                                    <rect key="frame" x="25" y="16" width="343" height="23"/>
+                                                    <rect key="frame" x="20" y="16" width="348" height="23"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Rxm-Zi-7an" firstAttribute="leading" secondItem="lqq-AZ-ymH" secondAttribute="leadingMargin" constant="5" id="B4a-4b-MfW"/>
+                                                <constraint firstItem="Rxm-Zi-7an" firstAttribute="leading" secondItem="lqq-AZ-ymH" secondAttribute="leadingMargin" id="B4a-4b-MfW"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rxm-Zi-7an" secondAttribute="trailing" constant="5" id="IQe-4E-y5M"/>
                                                 <constraint firstItem="Rxm-Zi-7an" firstAttribute="top" secondItem="lqq-AZ-ymH" secondAttribute="topMargin" constant="5" id="Maz-Kr-yNl"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rxm-Zi-7an" secondAttribute="bottom" constant="5" id="aS9-sY-vzL"/>
@@ -75,15 +76,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t2a-jP-igH" secondAttribute="trailing" id="sJX-HX-Oy8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="9Z8-Nm-xhJ"/>
                     <connections>
-                        <outlet property="MainHeaderView" destination="rXb-sd-iKj" id="dWE-uB-ffi"/>
-                        <outlet property="pokemonTableView" destination="t2a-jP-igH" id="jLq-gf-Xpp"/>
-                        <outlet property="titleLabel" destination="gXL-UK-bsf" id="g5Y-ia-n2F"/>
+                        <outlet property="MainHeaderView" destination="rXb-sd-iKj" id="i69-gG-HqD"/>
+                        <outlet property="pokemonTableView" destination="t2a-jP-igH" id="CFw-BY-TEF"/>
+                        <outlet property="titleLabel" destination="gXL-UK-bsf" id="qco-NV-Z1y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="983.96946564885491" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

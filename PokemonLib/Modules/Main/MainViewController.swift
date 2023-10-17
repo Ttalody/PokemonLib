@@ -7,9 +7,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MainViewProtocol {
     
-    var pokemonArray = [PokemonPreviewModel]()
+    static let identifier = "MainViewController"
+    
+    private var pokemonArray = [PokemonPreviewModel]()
+    
+    var presenter: MainPresenterProtocol?
 
     @IBOutlet weak var pokemonTableView: UITableView!
     @IBOutlet weak var MainHeaderView: UIView!
@@ -18,27 +22,27 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter?.getPokemonList()
+        
         pokemonTableView.delegate = self
         pokemonTableView.dataSource = self
-        
-        NetworkManager.makeRequest { result in
-            switch result {
-            case .success(let response):
-                self.pokemonArray.append(contentsOf: response?.results ?? [PokemonPreviewModel]())
-                reloadTable()
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        func reloadTable() {
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else {return}
-                self.pokemonTableView.reloadData()
-            }
+    }
+    
+    func reloadTable() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            self.pokemonTableView.reloadData()
         }
     }
 
+    func showList(pokemons: [PokemonPreviewModel]) {
+        self.pokemonArray.append(contentsOf: pokemons)
+        self.reloadTable()
+    }
+    
+    func showError(error: Error) {
+        print(error)
+    }
 
 }
 
@@ -53,5 +57,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
