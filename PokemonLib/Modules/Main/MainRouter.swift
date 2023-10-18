@@ -22,8 +22,6 @@ class MainRouter: MainRouterProtocol {
         let interactor: MainInteractorProtocol = MainInteractor()
         let router: MainRouterProtocol = MainRouter()
         
-        print("createModule")
-        
         vc.presenter = presenter
         presenter.vc = vc
         presenter.interactor = interactor
@@ -34,7 +32,14 @@ class MainRouter: MainRouterProtocol {
         return vc
     }
     
-    func openDetailViewController(at indexPath: IndexPath) {
-        print("openDetailViewController")
+    func pushDetailViewController(navigationController: UINavigationController, pokemonUrl: String) {
+
+        let detailVC = DetailRouter.createModule()
+        
+        detailVC.configure(with: pokemonUrl)
+        
+        navigationController.pushViewController(detailVC, animated: true)
+        navigationController.navigationBar.isHidden = false
+        
     }
 }

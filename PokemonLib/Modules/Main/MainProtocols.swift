@@ -32,6 +32,8 @@ protocol MainPresenterProtocol: AnyObject {
     func getPokemonList()
     
     func responseResult(pokemons: [PokemonPreviewModel]?, error: Error?)
+    
+    func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String)
 }
 
 protocol MainRouterProtocol: AnyObject {
@@ -40,4 +42,5 @@ protocol MainRouterProtocol: AnyObject {
     
     static func createModule() -> MainViewController
     
+    func pushDetailViewController(navigationController: UINavigationController, pokemonUrl: String)
 }

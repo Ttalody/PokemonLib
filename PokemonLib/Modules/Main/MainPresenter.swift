@@ -26,4 +26,8 @@ class MainPresenter: MainPresenterProtocol {
             self.vc?.showError(error: error)
         }
     }
+    
+    func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String) {
+        router?.pushDetailViewController(navigationController: navigationController, pokemonUrl: pokemonUrl)
+    }
 }

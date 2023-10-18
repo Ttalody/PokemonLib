@@ -14,10 +14,9 @@ class MainInteractor: MainInteractorProtocol {
     func requestPokemonList() {
         NetworkManager.makeRequest { result in
             switch result {
-            case .success(let response): print("api request success")
+            case .success(let response):
                 self.presenter?.responseResult(pokemons: response?.results, error: nil)
             case .failure(let error): self.presenter?.responseResult(pokemons: nil, error: error)
-                print("api request failure")
             }
         }
     }

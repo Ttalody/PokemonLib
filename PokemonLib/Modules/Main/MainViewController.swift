@@ -59,7 +59,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
+        if let url = pokemonArray[indexPath.row].url, let navController = navigationController {
+            presenter?.showDetailViewController(navigationController: navController, pokemonUrl: url)
+        }
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

@@ -20,6 +20,11 @@
 		750139072ADDCD51003A2EE0 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750139062ADDCD51003A2EE0 /* MainInteractor.swift */; };
 		750139092ADDCD59003A2EE0 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750139082ADDCD59003A2EE0 /* MainRouter.swift */; };
 		7501390B2ADDCE34003A2EE0 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501390A2ADDCE34003A2EE0 /* MainProtocols.swift */; };
+		7577F7C12ADF313D000736BE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577F7C02ADF313D000736BE /* DetailViewController.swift */; };
+		7577F7C32ADF3151000736BE /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577F7C22ADF3151000736BE /* DetailPresenter.swift */; };
+		7577F7C52ADF315E000736BE /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577F7C42ADF315E000736BE /* DetailInteractor.swift */; };
+		7577F7C72ADF316D000736BE /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577F7C62ADF316D000736BE /* DetailRouter.swift */; };
+		7577F7C92ADF3186000736BE /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577F7C82ADF3186000736BE /* DetailProtocols.swift */; };
 		759351162ADDBBE900E81DE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759351152ADDBBE900E81DE9 /* AppDelegate.swift */; };
 		759351182ADDBBE900E81DE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759351172ADDBBE900E81DE9 /* SceneDelegate.swift */; };
 		7593511A2ADDBBE900E81DE9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759351192ADDBBE900E81DE9 /* MainViewController.swift */; };
@@ -63,6 +68,11 @@
 		750139062ADDCD51003A2EE0 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
 		750139082ADDCD59003A2EE0 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		7501390A2ADDCE34003A2EE0 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
+		7577F7C02ADF313D000736BE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7577F7C22ADF3151000736BE /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		7577F7C42ADF315E000736BE /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		7577F7C62ADF316D000736BE /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		7577F7C82ADF3186000736BE /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
 		759351122ADDBBE900E81DE9 /* PokemonLib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonLib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759351152ADDBBE900E81DE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759351172ADDBBE900E81DE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				750139022ADDCD09003A2EE0 /* Main */,
+				7577F7BF2ADF3106000736BE /* Detail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -146,6 +157,18 @@
 				750138FF2ADDC783003A2EE0 /* MainTableViewCell.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		7577F7BF2ADF3106000736BE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				7577F7C02ADF313D000736BE /* DetailViewController.swift */,
+				7577F7C22ADF3151000736BE /* DetailPresenter.swift */,
+				7577F7C42ADF315E000736BE /* DetailInteractor.swift */,
+				7577F7C62ADF316D000736BE /* DetailRouter.swift */,
+				7577F7C82ADF3186000736BE /* DetailProtocols.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		759351092ADDBBE900E81DE9 = {
@@ -341,6 +364,11 @@
 				7501390B2ADDCE34003A2EE0 /* MainProtocols.swift in Sources */,
 				750139052ADDCD44003A2EE0 /* MainPresenter.swift in Sources */,
 				750138F42ADDC043003A2EE0 /* APIResponseModel.swift in Sources */,
+				7577F7C12ADF313D000736BE /* DetailViewController.swift in Sources */,
+				7577F7C32ADF3151000736BE /* DetailPresenter.swift in Sources */,
+				7577F7C52ADF315E000736BE /* DetailInteractor.swift in Sources */,
+				7577F7C92ADF3186000736BE /* DetailProtocols.swift in Sources */,
+				7577F7C72ADF316D000736BE /* DetailRouter.swift in Sources */,
 				750138FC2ADDC091003A2EE0 /* PokemonTypes.swift in Sources */,
 				750139072ADDCD51003A2EE0 /* MainInteractor.swift in Sources */,
 				750138FA2ADDC082003A2EE0 /* PokemonSprites.swift in Sources */,
