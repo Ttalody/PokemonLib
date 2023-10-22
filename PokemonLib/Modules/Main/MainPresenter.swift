@@ -19,12 +19,16 @@ class MainPresenter: MainPresenterProtocol {
         interactor?.requestPokemonList()
     }
     
-    func responseResult(pokemons: [PokemonPreviewModel]?, error: Error?) {
-        if let pokemons = pokemons {
-            self.vc?.showList(pokemons: pokemons)
+    func responseResult(response: APIResponseModel?, error: Error?) {
+        if let response = response {
+            self.vc?.showList(response: response)
         } else if let error = error {
             self.vc?.showError(error: error)
         }
+    }
+    
+    func getNextPage(urlString: String?) {
+        interactor?.requestNextPage(urlSting: urlString)
     }
     
     func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String) {

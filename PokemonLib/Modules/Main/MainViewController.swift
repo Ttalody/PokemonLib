@@ -13,8 +13,11 @@ class MainViewController: UIViewController, MainViewProtocol {
     
     private var pokemonArray = [PokemonPreviewModel]()
     
+    private var response: APIResponseModel?
+    
     var presenter: MainPresenterProtocol?
 
+    @IBOutlet weak var loadMoreButton: UIButton!
     @IBOutlet weak var pokemonTableView: UITableView!
     @IBOutlet weak var MainHeaderView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,15 +38,21 @@ class MainViewController: UIViewController, MainViewProtocol {
         }
     }
 
-    func showList(pokemons: [PokemonPreviewModel]) {
-        self.pokemonArray.append(contentsOf: pokemons)
-        self.reloadTable()
+    func showList(response: APIResponseModel) {
+        self.response = response
+        if let pokemons = response.results {
+            self.pokemonArray.append(contentsOf: pokemons)
+            self.reloadTable()
+        }
     }
     
     func showError(error: Error) {
         print(error)
     }
 
+    @IBAction func loadMoreButtonClicked(_ sender: Any) {
+        presenter?.getNextPage(urlString: response?.next)
+    }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {

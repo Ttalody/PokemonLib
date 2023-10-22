@@ -38,6 +38,29 @@
                                         <constraint firstItem="gXL-UK-bsf" firstAttribute="top" secondItem="rXb-sd-iKj" secondAttribute="top" constant="10" id="rYr-0N-Ikh"/>
                                     </constraints>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="L61-vG-pcl">
+                                    <rect key="frame" x="0.0" y="204" width="393" height="49"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfc-jx-4mE">
+                                            <rect key="frame" x="141.66666666666666" y="7" width="110" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="110" id="5ZV-VR-rbr"/>
+                                                <constraint firstAttribute="height" constant="35" id="co5-zH-9x8"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Load more"/>
+                                            <connections>
+                                                <action selector="loadMoreButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x9g-yO-jKB"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="Zfc-jx-4mE" firstAttribute="centerX" secondItem="L61-vG-pcl" secondAttribute="centerX" id="0LT-d0-pjH"/>
+                                        <constraint firstItem="Zfc-jx-4mE" firstAttribute="centerY" secondItem="L61-vG-pcl" secondAttribute="centerY" id="QEs-f8-2G1"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainTableViewCell" rowHeight="55" id="vnI-jc-aTF" customClass="MainTableViewCell" customModule="PokemonLib" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="121" width="393" height="55"/>
@@ -79,6 +102,7 @@
                     <navigationItem key="navigationItem" id="9Z8-Nm-xhJ"/>
                     <connections>
                         <outlet property="MainHeaderView" destination="rXb-sd-iKj" id="i69-gG-HqD"/>
+                        <outlet property="loadMoreButton" destination="Zfc-jx-4mE" id="GBj-q9-op5"/>
                         <outlet property="pokemonTableView" destination="t2a-jP-igH" id="CFw-BY-TEF"/>
                         <outlet property="titleLabel" destination="gXL-UK-bsf" id="qco-NV-Z1y"/>
                     </connections>

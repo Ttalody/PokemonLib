@@ -11,7 +11,7 @@ protocol MainViewProtocol: AnyObject {
     
     var presenter: MainPresenterProtocol? { get set }
     
-    func showList(pokemons: [PokemonPreviewModel])
+    func showList(response: APIResponseModel)
     
     func showError(error: Error)
 }
@@ -21,6 +21,8 @@ protocol MainInteractorProtocol: AnyObject {
     var presenter: MainPresenterProtocol? {get set}
     
     func requestPokemonList()
+    
+    func requestNextPage(urlSting: String?)
 }
 
 protocol MainPresenterProtocol: AnyObject {
@@ -31,7 +33,9 @@ protocol MainPresenterProtocol: AnyObject {
     
     func getPokemonList()
     
-    func responseResult(pokemons: [PokemonPreviewModel]?, error: Error?)
+    func getNextPage(urlString: String?)
+    
+    func responseResult(response: APIResponseModel?, error: Error?)
     
     func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String)
 }

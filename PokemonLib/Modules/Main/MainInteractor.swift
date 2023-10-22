@@ -15,8 +15,18 @@ class MainInteractor: MainInteractorProtocol {
         NetworkManager.makeRequest { result in
             switch result {
             case .success(let response):
-                self.presenter?.responseResult(pokemons: response?.results, error: nil)
-            case .failure(let error): self.presenter?.responseResult(pokemons: nil, error: error)
+                self.presenter?.responseResult(response: response, error: nil)
+            case .failure(let error): self.presenter?.responseResult(response: nil, error: error)
+            }
+        }
+    }
+    
+    func requestNextPage(urlSting: String?) {
+        NetworkManager.makePageRequest(urlString: urlSting) { result in
+            switch result {
+            case .success(let response):
+                self.presenter?.responseResult(response: response, error: nil)
+            case .failure(let error): self.presenter?.responseResult(response: nil, error: error)
             }
         }
     }

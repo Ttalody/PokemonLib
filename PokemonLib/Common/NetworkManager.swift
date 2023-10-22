@@ -36,6 +36,25 @@ class NetworkManager {
         dataTask?.resume()
     }
     
+    static func makePageRequest(urlString: String?, completion: @escaping (Result<APIResponseModel?, Error>) -> Void) {
+        guard let url = URL(string: urlString ?? "") else { return }
+        
+        dataTask = defaultSession.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {return print(error!.localizedDescription)}
+            
+            do {
+                let responseResult = try JSONDecoder().decode(APIResponseModel.self, from: data)
+                completion(.success(responseResult))
+            } catch {
+                completion(.failure(error))
+            }
+            
+        }
+        
+        dataTask?.resume()
+        
+    }
+    
     static func makePokemonRequest(url: String?, completion: @escaping (Result<PokemonResponseModel?, Error>) -> Void) {
         
         guard let url = URL(string: url ?? "") else { return print("no url: makePokemonRequest")}
