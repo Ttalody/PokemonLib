@@ -13,11 +13,11 @@ class DetailPresenter: DetailPresenterProtocol {
     var interactor: DetailInteractorProtocol?
     var router: DetailRouterProtocol?
     
-    func getPokemonData() {
-        print("getPokemonData")
+    func getPokemonData(url: String) {
+        interactor?.requestPokemonData(with: url)
     }
     
-    func responseResult(pokemons: [PokemonResponseModel]?, error: Error?) {
-        print("responseResult")
+    func responseResult(pokemon: PokemonResponseModel?, error: Error?) {
+        vc?.setupVC(pokemonModel: pokemon)
     }
 }

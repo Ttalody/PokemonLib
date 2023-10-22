@@ -18,7 +18,7 @@ protocol DetailViewProtocol: AnyObject {
 protocol DetailInteractorProtocol: AnyObject {
     var presenter: DetailPresenterProtocol? {get set}
     
-    func requestPokemonData()
+    func requestPokemonData(with url: String)
 }
 
 protocol DetailPresenterProtocol: AnyObject {
@@ -26,8 +26,8 @@ protocol DetailPresenterProtocol: AnyObject {
     var interactor: DetailInteractorProtocol? { get set }
     var router: DetailRouterProtocol? { get set }
     
-    func getPokemonData()
-    func responseResult(pokemons: [PokemonResponseModel]?, error: Error?)
+    func getPokemonData(url: String)
+    func responseResult(pokemon: PokemonResponseModel?, error: Error?)
 }
 
 protocol DetailRouterProtocol: AnyObject {

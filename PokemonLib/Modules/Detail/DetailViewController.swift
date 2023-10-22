@@ -14,7 +14,7 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     var pokemonUrl: String = String()
     
     static let identifier = "DetailViewController"
-
+    
     @IBOutlet weak var pokemonImageView: UIImageView!
     @IBOutlet weak var pokemonWeightLabel: UILabel!
     @IBOutlet weak var pokemonHeightLabel: UILabel!
@@ -31,27 +31,22 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         
     func setupVC(pokemonModel: PokemonResponseModel?) {
         guard let pokemon = pokemonModel,
+              let name = pokemon.name,
               let type = pokemon.pokemonTypes?[0].type?.name,
               let imageUrl = pokemon.sprites.frontDefault,
               let height = pokemon.height,
               let weight = pokemon.weight else {return}
+        self.navigationItem.title = name.capitalized
         self.pokemonHeightLabel.text = "Height: \(String(height * 10)) cm"
         self.pokemonTypeLabel.text = "Type: " + type.capitalized
         self.pokemonWeightLabel.text = "Weight: \(String(Double(weight) / 10)) kg"
-//        self.pokemonImageView.image =
+        NetworkManager.downloadImage(url: imageUrl) { image in
+            self.pokemonImageView.image = image
+        }
     }
     
     func configure(with url: String) {
-        
-        NetworkManager.makePokemonRequest(url: url) { result in
-            switch result {
-            case .success(let pokemonResponse):
-                DispatchQueue.main.async {
-                    self.setupVC(pokemonModel: pokemonResponse)
-                }
-            case.failure(let error): print("Error: \(error.localizedDescription)")
-            }
-        }
+        presenter?.getPokemonData(url: url)
     }
     
 }
