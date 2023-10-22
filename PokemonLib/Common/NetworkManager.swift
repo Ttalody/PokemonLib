@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class NetworkManager {
     
@@ -53,6 +54,19 @@ class NetworkManager {
         
         dataTask?.resume()
         
+    }
+    
+    static func downloadImage(url: String?, completion: @escaping (UIImage?) -> Void) {
+        guard let urlStr = url, let url = URL(string: urlStr) else {return}
+        dataTask = defaultSession.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {return print(error!.localizedDescription)}
+            
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                completion(image ?? UIImage())
+            }
+        }
+        dataTask?.resume()
     }
 }
 
