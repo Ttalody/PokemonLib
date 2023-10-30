@@ -22,7 +22,6 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -43,10 +42,31 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         NetworkManager.downloadImage(url: imageUrl) { image in
             self.pokemonImageView.image = image
         }
+        self.savePokemonItem(pokemonItem: pokemon)
     }
     
     func configure(with url: String) {
         presenter?.getPokemonData(url: url)
+    }
+    
+    func configure(with pokemonItem: PokemonDetailsItem) {
+        print(pokemonItem)
+        
+        self.navigationItem.title = pokemonItem.name!.capitalized
+        self.pokemonHeightLabel.text = "Height: \(String((pokemonItem.height) * 10)) cm"
+        self.pokemonTypeLabel.text = "Type: " + pokemonItem.type!.capitalized
+        self.pokemonWeightLabel.text = "Weight: \(String(Double(pokemonItem.weight) / 10)) kg"
+        self.pokemonImageView.image = UIImage(data: pokemonItem.image ?? Data())
+    }
+    
+    func savePokemonItem(pokemonItem: PokemonResponseModel){
+        CoreDataManager.shared.addItem(with: pokemonItem) { result in
+            switch result {
+            case .success(): print("item saved")
+                
+            case .failure(let error): print(error.localizedDescription)
+            }
+        }
     }
     
 }

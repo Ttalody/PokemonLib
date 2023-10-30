@@ -42,4 +42,18 @@ class MainRouter: MainRouterProtocol {
         navigationController.navigationBar.isHidden = false
         
     }
+    
+    func pushDetailViewController(navigationController: UINavigationController, pokemonItem: PokemonDetailsItem) {
+
+        let detailVC = DetailRouter.createModule()
+        print(pokemonItem)
+        
+        detailVC.loadView()
+        detailVC.configure(with: pokemonItem)
+        
+        navigationController.pushViewController(detailVC, animated: true)
+        navigationController.navigationBar.isHidden = false
+        
+    }
+
 }

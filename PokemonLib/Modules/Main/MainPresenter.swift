@@ -23,6 +23,7 @@ class MainPresenter: MainPresenterProtocol {
         if let response = response {
             self.vc?.showList(response: response)
         } else if let error = error {
+            
             self.vc?.showError(error: error)
         }
     }
@@ -34,4 +35,9 @@ class MainPresenter: MainPresenterProtocol {
     func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String) {
         router?.pushDetailViewController(navigationController: navigationController, pokemonUrl: pokemonUrl)
     }
+    
+    func showDetailViewController(navigationController: UINavigationController, pokemonItem: PokemonDetailsItem) {
+        router?.pushDetailViewController(navigationController: navigationController, pokemonItem: pokemonItem)
+    }
+
 }

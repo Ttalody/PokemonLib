@@ -38,6 +38,8 @@ protocol MainPresenterProtocol: AnyObject {
     func responseResult(response: APIResponseModel?, error: Error?)
     
     func showDetailViewController(navigationController: UINavigationController, pokemonUrl: String)
+    
+    func showDetailViewController(navigationController: UINavigationController, pokemonItem: PokemonDetailsItem)
 }
 
 protocol MainRouterProtocol: AnyObject {
@@ -47,4 +49,6 @@ protocol MainRouterProtocol: AnyObject {
     static func createModule() -> MainViewController
     
     func pushDetailViewController(navigationController: UINavigationController, pokemonUrl: String)
+    
+    func pushDetailViewController(navigationController: UINavigationController, pokemonItem: PokemonDetailsItem)
 }

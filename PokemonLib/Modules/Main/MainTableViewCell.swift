@@ -27,4 +27,9 @@ class MainTableViewCell: UITableViewCell {
     func configure(_ pokemon: PokemonPreviewModel) {
         cellLabel.text = pokemon.name?.capitalized
     }
+    
+    func configure(_ pokemon: PokemonDetailsItem) {
+        cellLabel.text = pokemon.name?.capitalized
+    }
+
 }
